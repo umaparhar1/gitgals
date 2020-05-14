@@ -27,11 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Application definition
 
 INSTALLED_APPS = [
-    'converter', #just added
+    'converter', #just ad
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

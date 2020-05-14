@@ -1,24 +1,29 @@
+{% load static %} 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>About the Creators</title>
-    <link rel="stylesheet" href="mysite.css">
+    <title>Personal Website</title>
+    <link rel="stylesheet" type ="text/css" href="{% static 'css/mysite.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body> 
     <!-- Side navigation -->
     <div class="sidenav">
         <a href="mysite.html">Home</a>
         <a href="aboutCreators.html">About the Creators</a>
         <a href="ourPortfolio.html">Our Portfolio</a>
     </div>
+
+    <!-- Page content -->
     <div class="main">
-        <h1>About the Creators:</h1>
-        <p>Uma Parhar</p>
-        <p>Lauren Ferg</p>
+        <div>
+            <h1>Welcome to Our Personal Website!</h1>
+            <p>Click the tabs on the left to see our projects or to learn more about the creators!</p>
+        </div>
     </div>
+
 </body>
 
 </html>
