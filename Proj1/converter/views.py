@@ -10,3 +10,6 @@ def creators(request):
 
 def portfolio(request):
     return render(request, 'converter/ourPortfolio.html', {})
+
+def converter(request):
+    return render(request, 'converter/converter.html', {})
