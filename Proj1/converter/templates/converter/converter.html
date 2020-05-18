@@ -1,271 +1,309 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
+ 
 <head>
-    <title>Binary, Hex, and Decimal Converter</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+   <title>Binary, Hex, and Decimal Converter</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-
+ 
 <body>
-    <div class="sidenav">
-        <a href="mysite.html">Home</a>
-        <a href="aboutCreators.html">About the Creators</a>
-        <a href="ourPortfolio.html">Our Portfolio</a>
-    </div>
-    <div class="main">
-        <h1>Binary, Hex, and Decimal Converter</h1>
-        <br>
-        <br>
-        <form>
-            <select id="list1" onchange="listoption()">
-                <option>Decimal</option>
-                <option>Hex</option>
-                <option>Binary</option>
-            </select>
-            <select id="list2" onchange="listoption()">
-                <option>Decimal</option>
-                <option>Hex</option>
-                <option>Binary</option>
-            </select>
-        </form>
-        <br>
-        <input id="userinput" placeholder="Enter value to convert here">
-        <br>
-        <br>
-        <button onclick="convert()" id="button1">Convert</button>
-        <br>
-        <br>
-        <p>Output: <input type="text" id="outputText" size="20"></p>
-    </div>
+   <div class="sidenav">
+       <a href="mysite.html">Home</a>
+       <a href="aboutCreators.html">About the Creators</a>
+       <a href="ourPortfolio.html">Our Portfolio</a>
+   </div>
+   <div class="main">
+       <h1>Binary, Hex, and Decimal Converter</h1>
+       <br>
+       <br>
+       <form>
+           <h5>Convert from: </h4>
+           <select id="list1" onchange="listoption()">
+               <option>Decimal</option>
+               <option>Hex</option>
+               <option>Binary</option>
+           </select>
+           <h5>Convert to: </h4>
+           <select id="list2" onchange="listoption()">
+               <option>Decimal</option>
+               <option>Hex</option>
+               <option>Binary</option>
+           </select>
+       </form>
+       <br>
+       <input id="userinput" placeholder="Enter value to convert here">
+       <br>
+       <br>
+       <button onclick="checkInput()" id="button1">Convert</button>
+       <br>
+       <br>
+       <p>Output: <input type="text" id="outputText" size="20"></p>
+   </div>
 </body>
 <script>
-    function listoption() {
-        var list1input = document.getElementById("list1");
-        var list2input = document.getElementById("list2");
-    }
-
-    function convert() {
-        var inputToConvert = document.getElementById("userinput").value;
-        var list1input = document.getElementById("list1");
-        var list2input = document.getElementById("list2");
-        if (list1input.value == list2input.value) {
-            if (list1input.value == "Hex") {
-                document.getElementById("outputText").value = "0x" + inputToConvert;
-            }
-            else {
-                document.getElementById("outputText").value = inputToConvert;
-            }
-        }
-        if (list1input.value == "Decimal") {
-            if (list2input.value == ("Binary")) {
-                decimaltoBinary(inputToConvert);
-            }
-            if (list2input.value == "Hex") {
-                decimalToHex(inputToConvert);
-            }
-        }
-        if (list1input.value == "Binary") {
-            if (list2input.value == "Decimal") {
-                binaryToDecimal(inputToConvert);
-            }
-            if (list2input.value == "Hex") {
-                binaryToHex(inputToConvert);
-            }
-        }
-        if (list1input.value == "Hex") {
-            if (list2input.value == "Decimal") {
-                hexToDecimal(inputToConvert);
-            }
-            if (list2input.value == "Binary") {
-                hexToBinary(inputToConvert);
-            }
-        }
-    }
-
-    function hexToBinary(hex) {
-        var binarySum = hex.split("");
-        var i = 0;
-        var out = "";
-        for (i; i < binarySum.length; i++) {
-            if (binarySum[i] == '0') {
-                out += 0000;
-            }
-            if (binarySum[i] == '1') {
-                out += 0001;
-            }
-            if (binarySum[i] == '2') {
-                out += 0010;
-            }
-            if (binarySum[i] == '3') {
-                out += 0011;
-            }
-            if (binarySum[i] == '4') {
-                out += 0100;
-            }
-            if (binarySum[i] == '5') {
-                out += 0101;
-            }
-            if (binarySum[i] == '6') {
-                out += 0110;
-            }
-            if (binarySum[i] == '7') {
-                out += 0111;
-            }
-            if (binarySum[i] == '8') {
-                out += 1000;
-            }
-            if (binarySum[i] == '9') {
-                out += 1001;
-            }
-            if (binarySum[i] == 'A' || binarySum[i] == 'a') {
-                out += 1010;
-            }
-            if (binarySum[i] == 'B' || binarySum[i] == 'b') {
-                out += 1011;
-            }
-            if (binarySum[i] == 'C' || binarySum[i] == 'c') {
-                out += 1100;
-            }
-            if (binarySum[i] == 'D' || binarySum[i] == 'd') {
-                out += 1101;
-            }
-            if (binarySum[i] == 'E' || binarySum[i] == 'e') {
-                out += 1110;
-            }
-            if (binarySum[i] == 'F' || binarySum[i] == 'f') {
-                out += 1111;
-            }
-        }
-        document.getElementById("outputText").value = out;
-    }
-
-    function hexToDecimal(hex) {
-        var len = hex.length;
-        var base = 1;
-        var dec_val = 0;
-
-        var i = len - 1;
-        for (i; i >= 0; i--) {
-            var temp = hex.charAt(i);
-            if (temp >= '0') {
-                if (temp <= '9') {
-                    dec_val += (temp.charCodeAt(0) - 48) * base;
-                    base = base * 16;
-                }
-            }
-
-            if (temp >= 'A') {
-                if (temp <= 'F') {
-                    dec_val += (temp.charCodeAt(0) - 55) * base;
-                    base = base * 16;
-                }
-            }
-            if (temp >= 'a') {
-                if (temp <= 'f') {
-                    dec_val += (temp.charCodeAt(0) - 87) * base;
-                    base = base * 16;
-                }
-            }
-        }
-        document.getElementById("outputText").value = dec_val;
-    }
-
-    function binaryToHex(binary) {
-        var hexNum = [];
-        var i = 1;
-        var j = 0;
-        var rem;
-        var dec = 0
-        var bin = binary;
-        while (bin > 0) {
-            rem = (bin % 2);
-            dec = parseInt(dec + rem * i);
-            i = (i * 2);
-            bin = parseInt(bin / 10);
-        }
-        i = 0;
-        while (dec != 0) {
-            hexNum[i] = (dec % 16);
-            dec = parseInt(dec / 16);
-            i++;
-        }
-
-        var count = hexNum.length;
-        for (k = 0; k < count; k++) {
-            if (hexNum[k] > 9) {
-                var temp = hexNum[k];
-                hexNum[k] = String.fromCharCode(temp + 55);
-            }
-        }
-
-        var out = "0x" + hexNum.reverse().join("");
-        document.getElementById("outputText").value = out;
-    }
-
-    function binaryToDecimal(binary) {
-        var num = binary;
-        var decimalValue = 0;
-
-        var base = 1;
-        var temp = num;
-
-        while (temp > 0) {
-            var last_digit = parseInt(temp % 10);
-            temp = parseInt(temp / 10);
-            decimalValue += parseInt(last_digit * base);
-            base = base * 2;
-        }
-        document.getElementById("outputText").value = decimalValue;
-    }
-
-    function decimalToHex(decimal) {
-        var hexNum = [];
-
-        var i = 0;
-        while (decimal != 0) {
-            var temp = 0;
-            temp = decimal % 16;
-            if (temp < 10) {
-                hexNum[i] = String.fromCharCode(temp + 48);
-                i++;
-            }
-            else {
-                hexNum[i] = String.fromCharCode(temp + 55);
-                i++
-            }
-            decimal = decimal / 16;
-        }
-
-        var k = hexNum.length - 1;
-        for (k; k >= 0; k--) {
-            if (hexNum[k] == 0) {
-
-                hexNum.pop();
-            }
-            else {
-                break;
-            }
-        }
-
-        var out = "0x" + hexNum.reverse().join("");
-        document.getElementById("outputText").value = out;
-
-    }
-    function decimaltoBinary(decimal) {
-        var binaryNum = [];
-
-        i = 0;
-        while (decimal > 0) {
-            binaryNum[i] = decimal % 2;
-            decimal = parseInt((decimal / 2));
-            i = i + 1;
-        }
-        var out = binaryNum.reverse().join("");
-        document.getElementById("outputText").value = out;
-    }
-
+   function checkInput() {
+       var inputToConvert = document.getElementById("userinput").value;
+       var convertFrom = document.getElementById("list1");
+       var convertTo = document.getElementById("list2");
+       if (convertFrom.value == "Decimal") {
+           if (isNaN(document.getElementById("userinput").value)) {
+               alert("Decimal values must be entered as a combination of digits 0-9 (ex: 10)");
+               return;
+           }
+       }
+       else if (convertFrom.value == "Hex") {
+           var len = document.getElementById("userinput").value.length;
+           var i = len - 1;
+           for (i; i >= 0; i--) {
+               var temp = document.getElementById("userinput").value.charAt(i);
+               if (!((temp >= 'A' && temp <= 'F') || (temp >= 'a' && temp <= 'f') || (temp >= '0' && temp <= '9'))) {
+                   alert("Hex values must be entered as a combination of numbers and letters between A-F (ex: 10F)");
+                   return;
+               }
+           }
+       }
+       else if (convertFrom.value == "Binary") {
+           var len = document.getElementById("userinput").value.length;
+           var i = len - 1;
+           for (i; i >= 0; i--) {
+               var temp = document.getElementById("userinput").value.charAt(i);
+               if (!((temp == 1) || (temp == 0))) {
+                   alert("Binary values must be entered as a combination of 0s and 1s (ex: 1010");
+                   return;
+               }
+           }
+       }
+       convert();
+   }
+ 
+   function listoption() {
+       var convertFrom = document.getElementById("list1");
+       var convertTo = document.getElementById("list2");
+   }
+ 
+ 
+   function convert() {
+       var inputToConvert = document.getElementById("userinput").value;
+       var convertFrom = document.getElementById("list1");
+       var convertTo = document.getElementById("list2");
+       if (convertFrom.value == convertTo.value) {
+           if (convertFrom.value == "Hex") {
+               document.getElementById("outputText").value = "0x" + inputToConvert;
+           }
+           else {
+               document.getElementById("outputText").value = inputToConvert;
+           }
+       }
+       if (convertFrom.value == "Decimal") {
+           if (convertTo.value == ("Binary")) {
+               decimaltoBinary(inputToConvert);
+           }
+           if (convertTo.value == "Hex") {
+               decimalToHex(inputToConvert);
+           }
+       }
+       if (convertFrom.value == "Binary") {
+           if (convertTo.value == "Decimal") {
+               binaryToDecimal(inputToConvert);
+           }
+           if (convertTo.value == "Hex") {
+               binaryToHex(inputToConvert);
+           }
+       }
+       if (convertFrom.value == "Hex") {
+           if (convertTo.value == "Decimal") {
+               hexToDecimal(inputToConvert);
+           }
+           if (convertTo.value == "Binary") {
+               hexToBinary(inputToConvert);
+           }
+       }
+   }
+ 
+   function hexToBinary(hex) {
+       var binarySum = hex.split("");
+       var i = 0;
+       var out = "";
+       for (i; i < binarySum.length; i++) {
+           if (binarySum[i] == '0') {
+               out += 0000;
+           }
+           if (binarySum[i] == '1') {
+               out += 0001;
+           }
+           if (binarySum[i] == '2') {
+               out += 0010;
+           }
+           if (binarySum[i] == '3') {
+               out += 0011;
+           }
+           if (binarySum[i] == '4') {
+               out += 0100;
+           }
+           if (binarySum[i] == '5') {
+               out += 0101;
+           }
+           if (binarySum[i] == '6') {
+               out += 0110;
+           }
+           if (binarySum[i] == '7') {
+               out += 0111;
+           }
+           if (binarySum[i] == '8') {
+               out += 1000;
+           }
+           if (binarySum[i] == '9') {
+               out += 1001;
+           }
+           if (binarySum[i] == 'A' || binarySum[i] == 'a') {
+               out += 1010;
+           }
+           if (binarySum[i] == 'B' || binarySum[i] == 'b') {
+               out += 1011;
+           }
+           if (binarySum[i] == 'C' || binarySum[i] == 'c') {
+               out += 1100;
+           }
+           if (binarySum[i] == 'D' || binarySum[i] == 'd') {
+               out += 1101;
+           }
+           if (binarySum[i] == 'E' || binarySum[i] == 'e') {
+               out += 1110;
+           }
+           if (binarySum[i] == 'F' || binarySum[i] == 'f') {
+               out += 1111;
+           }
+       }
+       document.getElementById("outputText").value = out;
+   }
+ 
+   function hexToDecimal(hex) {
+       var len = hex.length;
+       var base = 1;
+       var dec_val = 0;
+ 
+       var i = len - 1;
+       for (i; i >= 0; i--) {
+           var temp = hex.charAt(i);
+           if (temp >= '0') {
+               if (temp <= '9') {
+                   dec_val += (temp.charCodeAt(0) - 48) * base;
+                   base = base * 16;
+               }
+           }
+ 
+           if (temp >= 'A') {
+               if (temp <= 'F') {
+                   dec_val += (temp.charCodeAt(0) - 55) * base;
+                   base = base * 16;
+               }
+           }
+           if (temp >= 'a') {
+               if (temp <= 'f') {
+                   dec_val += (temp.charCodeAt(0) - 87) * base;
+                   base = base * 16;
+               }
+           }
+       }
+       document.getElementById("outputText").value = dec_val;
+   }
+ 
+   function binaryToHex(binary) {
+       var hexNum = [];
+       var i = 1;
+       var j = 0;
+       var rem;
+       var dec = 0
+       var bin = binary;
+       while (bin > 0) {
+           rem = (bin % 2);
+           dec = parseInt(dec + rem * i);
+           i = (i * 2);
+           bin = parseInt(bin / 10);
+       }
+       i = 0;
+       while (dec != 0) {
+           hexNum[i] = (dec % 16);
+           dec = parseInt(dec / 16);
+           i++;
+       }
+ 
+       var count = hexNum.length;
+       for (k = 0; k < count; k++) {
+           if (hexNum[k] > 9) {
+               var temp = hexNum[k];
+               hexNum[k] = String.fromCharCode(temp + 55);
+           }
+       }
+ 
+       var out = "0x" + hexNum.reverse().join("");
+       document.getElementById("outputText").value = out;
+   }
+ 
+   function binaryToDecimal(binary) {
+       var num = binary;
+       var decimalValue = 0;
+ 
+       var base = 1;
+       var temp = num;
+ 
+       while (temp > 0) {
+           var last_digit = parseInt(temp % 10);
+           temp = parseInt(temp / 10);
+           decimalValue += parseInt(last_digit * base);
+           base = base * 2;
+       }
+       document.getElementById("outputText").value = decimalValue;
+   }
+ 
+   function decimalToHex(decimal) {
+       var hexNum = [];
+ 
+       var i = 0;
+       while (decimal != 0) {
+           var temp = 0;
+           temp = decimal % 16;
+           if (temp < 10) {
+               hexNum[i] = String.fromCharCode(temp + 48);
+               i++;
+           }
+           else {
+               hexNum[i] = String.fromCharCode(temp + 55);
+               i++
+           }
+           decimal = decimal / 16;
+       }
+ 
+       var k = hexNum.length - 1;
+       for (k; k >= 0; k--) {
+           if (hexNum[k] == 0) {
+ 
+               hexNum.pop();
+           }
+           else {
+               break;
+           }
+       }
+ 
+       var out = "0x" + hexNum.reverse().join("");
+       document.getElementById("outputText").value = out;
+ 
+   }
+   function decimaltoBinary(decimal) {
+       var binaryNum = [];
+ 
+       i = 0;
+       while (decimal > 0) {
+           binaryNum[i] = decimal % 2;
+           decimal = parseInt((decimal / 2));
+           i = i + 1;
+       }
+       var out = binaryNum.reverse().join("");
+       document.getElementById("outputText").value = out;
+   }
+ 
 </script>
-
+ 
 </html>
