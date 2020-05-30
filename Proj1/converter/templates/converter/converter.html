@@ -5,7 +5,8 @@
 <head>
    <title>Binary, Hex, and Decimal Converter</title>
    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
  
 <body>
@@ -15,31 +16,31 @@
        <a href="ourPortfolio.html">Our Portfolio</a>
    </div>
    <div class="main">
-       <h1>Binary, Hex, and Decimal Converter</h1>
+       <h1 style = "margin-top: 3%;">Binary, Hex, and Decimal Converter</h1>
        <br>
        <br>
        <form>
-           <h5>Convert from: </h4>
-           <select id="list1" onchange="listoption()">
+           <select id="list1" onchange="listoption()"style="height: 35px; width:100px;font-size: 17px;background-color:#E0E0E0;border-width: 2px; color: black;margin-right: 85px;">
                <option>Decimal</option>
                <option>Hex</option>
                <option>Binary</option>
            </select>
-           <h5>Convert to: </h4>
-           <select id="list2" onchange="listoption()">
+           <i style="font-size:24px;" class="fa">&#xf178;</i>
+           <select id="list2" onchange="listoption()" style="height: 35px;width:100px;margin-left: 85px;font-size: 17px;background-color:#E0E0E0;border-width: 2px; color: black;">
                <option>Decimal</option>
                <option>Hex</option>
                <option>Binary</option>
            </select>
        </form>
        <br>
-       <input id="userinput" placeholder="Enter value to convert here">
+       <p><textarea id="userinput" name = "userInput" placeholder="  Enter value to convert here" rows = 12 cols = 30 style = "font-size: 16px;margin-right: 1%;color: black;background-color:#E0E0E0;border-width: 2px;border-radius: 15px;padding: 3px;"></textarea>
+       <textarea type="text" name = "userOutput" placeholder=" Output will appear here" id="outputText" rows = 12 cols = 30 style = "font-size: 16px;margin-left: 1%;color: black;background-color:#E0E0E0; border-width: 2px;border-radius: 15px;padding: 3px;"></textarea></p> 
        <br>
-       <br>
-       <button onclick="checkInput()" id="button1">Convert</button>
-       <br>
-       <br>
-       <p>Output: <input type="text" id="outputText" size="20"></p>
+        <br>
+       <button onclick="checkInput()" id="button1" style = "height: 75px; width:150px;font-size: 25px;background-color: #D0D0D0; border-style: groove;border-width: 5px;border-radius: 15px;">CONVERT!</button>
+        <br>
+        <br>
+       
    </div>
 </body>
 <script>
