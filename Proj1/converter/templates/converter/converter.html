@@ -104,7 +104,7 @@
         var convertTo = document.getElementById("list2");
         if (convertFrom.value == "Decimal") {
             if (isNaN(document.getElementById("userinput").value)) {
-                alert("Decimal values must be entered as a combination of digits 0-9 (ex: 10)");
+                Alert.render("","","Decimal values must be entered as a combination of digits 0-9 (ex: 10)");
                 return;
             }
         }
@@ -114,7 +114,7 @@
             for (i; i >= 0; i--) {
                 var temp = document.getElementById("userinput").value.charAt(i);
                 if (!((temp >= 'A' && temp <= 'F') || (temp >= 'a' && temp <= 'f') || (temp >= '0' && temp <= '9'))) {
-                    alert("Hex values must be entered as a combination of numbers and letters between A-F (ex: 10F)");
+                    Alert.render("","","Hex values must be entered as a combination of numbers and letters between A-F (ex: 10F)");
                     return;
                 }
             }
@@ -125,7 +125,7 @@
             for (i; i >= 0; i--) {
                 var temp = document.getElementById("userinput").value.charAt(i);
                 if (!((temp == 1) || (temp == 0))) {
-                    alert("Binary values must be entered as a combination of 0s and 1s (ex: 1010");
+                    Alert.render("","","Binary values must be entered as a combination of 0s and 1s (ex: 1010");
                     return;
                 }
             }
