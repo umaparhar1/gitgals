@@ -24,6 +24,20 @@ body{
   background-image: linear-gradient(	powderblue, black);
   color: black;
 }
+
+.bmi-pic:hover {
+  transform: scale(1.2);
+  
+}
+
+.workout-pic:hover{
+  transform: scale(1.2);
+}
+
+.calorie-pic:hover{
+  transform: scale(1.2);
+}
+
 /* The sidebar menu */
 .sidenav {
   height: 95%; /* Full-height: remove this if you want "auto" height */
