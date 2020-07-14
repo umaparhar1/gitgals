@@ -1,0 +1,58 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" type ="text/css" href="{% static 'css/mysite.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body style = "background-image: linear-gradient(#D8BFD8, black);"> 
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="index.html">Home</a>
+        <a href="aboutCreators.html">About the Creators</a>
+        <a href="ourPortfolio.html">Our Portfolio</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        <div>
+            <h1 style = "margin-top: 2%;margin-bottom: 4%;">BMI Calculator</h1>
+        </div>
+        <div class = "calculator" style = 'background-color: #D8BFD8; height: 500px; width:300px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
+            <br>
+            <p>Enter your height (in inches): </p>
+            <br>
+            <textarea name="height" id="height" cols="25" rows="2" style = 'margin-top: 2%;'></textarea>
+            <br>
+            <br>
+            <p>Enter your weight (in pounds): </p>
+            <br>
+            <textarea name = "weight" id="weight" cols='25' rows = '2'></textarea>
+            <br>
+            <br>
+            <button onclick="calculateBMI()" id="bmi-calculate"
+            style="height: 63px; width:150px;font-size: 20px;background-color: black; border-style: groove;border-width: 5px;border-radius: 15px;color: white;">CALCULATE!</button>
+            <br>
+            <br>
+            <br>
+            <p>Your BMI:</p>
+            <br>
+            <textarea id = 'bmi-output'></textarea>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function calculateBMI(){
+        var height = document.getElementById('height').value;
+        var weight = document.getElementById('weight').value;
+        var formulaHeight = height*height;
+        var bmi = (weight/formulaHeight)*703;
+        document.getElementById('bmi-output').value = bmi;
+    }
+</script>
+</html>
