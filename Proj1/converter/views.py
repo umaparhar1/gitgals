@@ -18,7 +18,11 @@ def workout(request):
     return render(request, 'converter/workout.html', {})
 
 def bmi(request):
+<<<<<<< HEAD
     return render(request, 'converter/bmi.html', {})
 
 def caloriesBurned(request):
     return render(request, 'converter/caloriesBurned.html', {})
+=======
+    return render(request, 'converter/bmi.html', {})
+>>>>>>> b6bded5ebdf06d592e3275b711dbf7f7b1869cc7
