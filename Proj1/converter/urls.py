@@ -9,4 +9,5 @@ urlpatterns = [
     path('workout.html', views.workout, name='workout-app'),
     path('bmi.html', views.bmi, name='bmi-app'),
     path('caloriesBurned.html', views.caloriesBurned, name='caloriesBurned-app'),
+    path('workoutIdeas.html', views.workoutIdeas, name='workoutIdeas-app'),
 ]

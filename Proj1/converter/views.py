@@ -22,3 +22,6 @@ def bmi(request):
 
 def caloriesBurned(request):
     return render(request, 'converter/caloriesBurned.html', {})
+
+def workoutIdeas(request):
+    return render(request, 'converter/workoutIdeas.html', {})

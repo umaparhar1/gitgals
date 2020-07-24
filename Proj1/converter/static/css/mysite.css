@@ -50,8 +50,8 @@ body{
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   border-radius: 10px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 /* The navigation menu links */

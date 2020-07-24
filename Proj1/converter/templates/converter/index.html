@@ -3,9 +3,42 @@
 <html>
 
 <head>
-    <title>Personal Website</title>
+    <title>GitGals</title>
     <link rel="stylesheet" type ="text/css" href="{% static 'css/mysite.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style type = 'text/css'>
+    body{
+        background-image: url('static/img/newback.png');
+        background-size: cover;
+        background-attachment: fixed;
+        color: purple;
+    }
+    .title{
+        font-size: x-large;
+        align-self: center;
+        margin-bottom: 2%;
+    }
+    .more{
+        font-size: 12;
+        align-self: center;
+    }
+    .main{
+        background-color: #EED2EE;
+        border-color: black;
+        border-width: 0.15cm;
+        border-style:ridge;
+        margin-top: 15%;
+        align-self: center;
+    }
+    .foot{
+        color: black;
+        align-self: center;
+        text-align: center;
+        margin-top: 330px;
+        margin-left: 150px;
+        font-weight: bolder;
+    }
+    </style>
 </head>
 
 <body> 
@@ -18,12 +51,18 @@
 
     <!-- Page content -->
     <div class="main">
-        <div>
-            <h1 style = "margin-top: 2%;">Welcome to Our Personal Website!</h1>
+        <div class = 'title'>
+            <h1 style = "margin-top: 2%;">Welcome to GitGals!</h1>
+        </div>
+        <div class = 'more'>
             <p>Click the tabs on the left to see our projects or to learn more about the creators!</p>
         </div>
+        <br>
+        <br>
     </div>
-
+    <div class = 'foot'>
+    <p>Website designed and built by Uma Parhar and Lauren Ferg</p>
+</div>
 </body>
 
 </html>
