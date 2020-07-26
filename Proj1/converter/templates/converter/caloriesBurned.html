@@ -20,9 +20,41 @@
     <div class="main">
         <a style="margin-right: 60%;" href="workout.html">&#8592 Back to Workout Helper Homepage</a>
         <h1 style = "margin-top: 2%;margin-bottom: 2%;">Calculate Calories Burned in Workout</h1>
-        <h2 style = 'font-size: 12; font-weight: bolder;'>This feature is coming soon!</h2>
+        <h2 style = 'font-size: 12; font-weight: bolder; margin-bottom: 2%;'>This feature is coming soon!</h2>
+        <div class="calculator"
+            style='background-color: #D8BFD8; height: 550px; width:600px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
+            <br>
+            <p style='font-weight: bolder;'>Enter your weight (in pounds): </p>
+            <br>
+            <textarea name="weight" id="weight" cols="25" rows="1"
+                style='size: 20px; text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
+            <br>
+            <br>
+            <p style='font-weight: bolder;'>Enter the duration of workout (in minutes): </p>
+            <br>
+            <textarea name="duration" id="duration" cols='25' rows='1'
+                style='size: 20px; text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
+            <br>
+            <br>
+            <p style='font-weight: bolder;'>Select your workout: </p>
+            <input type="radio" id="walk">
+            <label for="walk">Walk</label><br> 
+            <input type="radio" id="Run">
+            <label for="walk">Run</label><br> 
+            <input type="radio" id="Swim">
+            <label for="walk">Swim</label><br>
+        </div>
     </div>
 
 </body>
+
+<script>
+
+    function poundsToKilos() {
+        var weight = document.getElementById("weight").value;
+        return 0.453592 * weight;
+    }
+    
+</script>
 
 </html>
