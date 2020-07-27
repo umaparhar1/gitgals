@@ -22,7 +22,7 @@
         <h1 style = "margin-top: 2%;margin-bottom: 2%;">Calculate Calories Burned in Workout</h1>
         <h2 style = 'font-size: 12; font-weight: bolder; margin-bottom: 2%;'>This feature is coming soon!</h2>
         <div class="calculator"
-            style='background-color: #D8BFD8; height: 550px; width:600px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
+            style='background-color: #D8BFD8; height: 550px; width:700px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
             <br>
             <p style='font-weight: bolder;'>Enter your weight (in pounds): </p>
             <br>
@@ -36,13 +36,38 @@
                 style='size: 20px; text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
             <br>
             <br>
-            <p style='font-weight: bolder;'>Select your workout: </p>
-            <input type="radio" name="workoutOptions" id="walk">
-            <label for="walk">Walk</label><br> 
-            <input type="radio" name="workoutOptions" id="Run">
-            <label for="walk">Run</label><br> 
-            <input type="radio" name="workoutOptions" id="Swim">
-            <label for="walk">Swim</label><br>
+            <p style='font-weight: bolder;'>Select your workout: </p><br>
+            <div class="workoutOptionSelection" style="width:600px; text-align:center; display:inline-block;">
+                <div class="leftColRadioButtons" style="float:left; width:50%;">
+                    <input type="radio" name="workoutOptions" id="walk-moderate">
+                    <label for="walk-moderate">Walking - Moderate pace (~3 mph)</label><br> 
+                    <input type="radio" name="workoutOptions" id="walk-brisk">
+                    <label for="walk-brisk">Walking - brisk pace (~4 mph)</label><br> 
+                    <input type="radio" name="workoutOptions" id="jog">
+                    <label for="jog">Jog (~6 mph, 10 min mile)</label><br> 
+                    <input type="radio" name="workoutOptions" id="run">
+                    <label for="run">Run (~7.5 mph, 8 min mile)</label><br>
+                    <input type="radio" name="workoutOptions" id="sprint">
+                    <label for="spring">Sprint (~10 mph, 6 minute mile)</label><br>
+                    <input type="radio" name="workoutOptions" id="bike">
+                    <label for="bike">Biking</label>
+                </div>
+                <div class="rightColRadiobuttons" style="float:right; width:50%;">
+                    <input type="radio" name="workoutOptions" id="calisthenics">
+                    <label for="calisthenics">Calisthenics</label><br>
+                    <input type="radio" name="workoutOptions" id="resistance">
+                    <label for="resistance">Resistance training</label><br>
+                    <input type="radio" name="workoutOptions" id="hiit">
+                    <label for="hitt">HIIT</label><br>
+                    <input type="radio" name="workoutOptions" id="yoga">
+                    <label for="yoga">Yoga</label><br>
+                    <input type="radio" name="workoutOptions" id="rowing">
+                    <label for="rowing">Rowing machine</label><br>
+                </div>
+            </div>
+            <br><br><br>
+            <button onclick="calculateCaloriesBurned()" id="caloriesBurned-calculate"
+                style="margin: 0 auto; height:50px; width:250px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Calculate Calories Burned</button>
         </div>
     </div>
 
