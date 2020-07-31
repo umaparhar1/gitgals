@@ -15,19 +15,16 @@ div#hero{
   top: 0;
   padding-top: 15px;
   text-align: center;
+  align-self: center;
+  align-content: center;
 }
 body{
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: linear-gradient(	powderblue, black);
+  background-image: linear-gradient(	#D8BFD8, black);
   color: black;
-}
-
-.bmi-pic:hover {
-  transform: scale(1.2);
-  
 }
 
 .workout-pic:hover{
