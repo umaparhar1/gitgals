@@ -1,17 +1,17 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Calculate Calories Burned</title>
-    <link rel="stylesheet" type ="text/css" href="{% static 'css/mysite.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body style = "background-image: linear-gradient(#D8BFD8, black);"> 
+<body style="background-image: linear-gradient(#D8BFD8, black);">
     <!-- Side navigation -->
     <div class="sidenav">
-        <a href="index.html">Home</a> 
+        <a href="index.html">Home</a>
         <a href="aboutCreators.html">About the Creators</a>
         <a href="ourPortfolio.html">Our Portfolio</a>
     </div>
@@ -19,10 +19,161 @@
     <!-- Page content -->
     <div class="main">
         <a style="margin-right: 60%;" href="ourPortfolio.html">&#8592 Back to Our Portfolio</a>
-        <h1 style = "margin-top: 2%;margin-bottom: 4%;">Workout Ideas</h1>
-        <h2 style = 'font-size: 12; font-weight: bolder;'>This feature is coming soon!</h2>
-    </div>
+        <h1 style="margin-top: 2%;margin-bottom: 4%;">Workout Generator</h1>
+        <div class="calculator"
+            style='background-color: #D8BFD8; height: 720px; width:700px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;margin-bottom: 50px;'>
+            <br>
+            <h2 style='font-weight: bolder;text-decoration: underline;'>Welcome to your Workout Generator!</h2>
+            <br>
+            <h3>Which areas would you like to focus on today?</h3>
+            <br>
+            <input type="radio" name="workoutOption1" id="Legs">
+            <label for="Legs">Legs</label><br>
+            <input type="radio" name="workoutOption2" id="Glutes">
+            <label for="Glutes">Glutes</label><br>
+            <input type="radio" name="workoutOption3" id="Arms">
+            <label for="Arms">Arms</label><br>
+            <input type="radio" name="workoutOption4" id="Abs">
+            <label for="Abs">Abs</label><br>
+            <input type="radio" name="workoutOption5" id="Cardio">
+            <label for="Cardio">Cardio</label><br>
+            <input type="radio" name="workoutOption6" id="Back/Chest">
+            <label for="Back/Chest">Back/Chest</label><br>
+            <br>
+            <button onclick='generate()' id='generate'
+                style="height: 57px; width:170px;font-size: 17px;background-color: white; border-style: groove;border-width: 5px;border-radius: 15px;color: black;text-align: center;">Generate!</button>
+            <br>
+            <br>
+            <textarea readonly id='generatedWorkout' rows=18 cols=28 style='background-color: lightgrey;'></textarea>
+            <p>Have a safe workout!</p>
+        </div>
 
 </body>
+
+<script>
+    var leg = ['Dumbbell Walking Lunge', 'Standing Calf Raises', 'Pistol Squats', 'Single Leg Squats',
+        'Curtsy Lunges', 'Deadlifts', 'Step-Ups', 'Banded Step Outs', 'Leg Extensions', 'Split Squats',
+        'Seated Dumbell Calf Raises', '(Weighted) Side Lunges'];
+    var glute = ['(Barbell) Hip Thrusts', 'Reverse Lunges', 'Glute Bridges', 'Squats', 'Side-Lying Clams', 'Supermans',
+        'Hip Thrusts', 'Butterfly Hip Thrusts', 'Single-Leg Glute Bridges', 'Reverse Table-Ups', 'Kettlebell Swings', 'Split Squats', 'Hover to Drive Lunges'
+        , 'Box Squats', 'Hip Extensions', 'Side-Lying Hip Extensions', 'Sumo Squats', 'Step Ups'];
+    var cardio = ['Walk', 'Elliptical', 'Treadmill Run', 'Inclined Walk', 'Jump Rope', 'Rowing Machine', 'Jog-Sprints',
+        'Stair Climber', 'Cycling', 'Burpees', 'Jump Squats', 'Mountain Climbers', 'Jumping Jacks', 'Plank Jacks', 'Skaters',
+        'Lateral Shuffle Taps', 'Sit-Outs', 'Walking Lunges', 'Fast Feet Drops', 'Jumping Split Squats', 'Dumbell Squat Cleans',
+        'Broad Jumps'];
+    var abs = ['Plank', 'Side Plank', 'Russian Twists', 'Flutter Kicks', 'Butterfly Kicks', 'Toe Touches',
+        'Leg Raises', 'Supermans', 'Reverse Crunches', 'Sit-Ups', 'Bicycle Crunches', 'Boat Pose', 'Hip Twists',
+        'Raised Leg Circles', 'Windshield Wipers', 'Toe Touch Crunches', 'V Crunches'];
+    var arms = ['Bicep Curls', 'Hammer Curls', 'Chin Ups', 'Diamond Pushups', 'Reverse Curls', 'Overhead Presses', 'Tricep Extensions',
+        'Bench Presses', 'Band Lateral Raises', 'Standing Dumbbell Flyes', 'Lat Pull Downs', 'Tricep Dips',
+        'Upright Rows'];
+    var back_chest = ['Inclined Bench Press', 'Wide Lat Pull Downs', 'Seated Rows', 'One-Arm Cable Presses', 'Back Squats',
+        'Box Push Ups', 'Shoulder Fly', 'Wide Row'];
+    function generate() {
+        var generatedWorkoutString = '';
+        if (document.getElementById('Legs').checked) {
+            randomNumber1 = Math.floor((Math.random() * leg.length));
+            randomNumber2 = Math.floor((Math.random() * leg.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * leg.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * leg.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * leg.length));
+            }
+            generatedWorkoutString += leg[randomNumber1] + '\n' + leg[randomNumber2] + '\n' + leg[randomNumber3];
+        }
+        if (document.getElementById('Glutes').checked) {
+            randomNumber1 = Math.floor((Math.random() * glute.length));
+            randomNumber2 = Math.floor((Math.random() * glute.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * glute.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * glute.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * glute.length));
+            }
+            if (generatedWorkoutString == '') {
+                generatedWorkoutString += glute[randomNumber1] + '\n' + glute[randomNumber2] + '\n' + glute[randomNumber3];
+            }
+            else {
+                generatedWorkoutString += '\n' + glute[randomNumber1] + '\n' + glute[randomNumber2] + '\n' + glute[randomNumber3];
+            }
+        }
+        if (document.getElementById('Arms').checked) {
+            randomNumber1 = Math.floor((Math.random() * arms.length));
+            randomNumber2 = Math.floor((Math.random() * arms.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * arms.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * arms.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * arms.length));
+            }
+            if (generatedWorkoutString == '') {
+                generatedWorkoutString += arms[randomNumber1] + '\n' + arms[randomNumber2] + '\n' + arms[randomNumber3];
+            }
+            else {
+                generatedWorkoutString += '\n' + arms[randomNumber1] + '\n' + arms[randomNumber2] + '\n' + arms[randomNumber3];
+            }
+        }
+
+        if (document.getElementById('Abs').checked) {
+            randomNumber1 = Math.floor((Math.random() * abs.length));
+            randomNumber2 = Math.floor((Math.random() * abs.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * abs.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * abs.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * abs.length));
+            }
+            if (generatedWorkoutString == '') {
+                generatedWorkoutString += abs[randomNumber1] + '\n' + abs[randomNumber2] + '\n' + abs[randomNumber3];
+            }
+            else {
+                generatedWorkoutString += '\n' + abs[randomNumber1] + '\n' + abs[randomNumber2] + '\n' + abs[randomNumber3];
+            }
+        }
+
+        if (document.getElementById('Cardio').checked) {
+            randomNumber1 = Math.floor((Math.random() * cardio.length));
+            randomNumber2 = Math.floor((Math.random() * cardio.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * cardio.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * cardio.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * cardio.length));
+            }
+            if (generatedWorkoutString == '') {
+                generatedWorkoutString += cardio[randomNumber1] + '\n' + cardio[randomNumber2] + '\n' + cardio[randomNumber3];
+            }
+            else {
+                generatedWorkoutString += '\n' + cardio[randomNumber1] + '\n' + cardio[randomNumber2] + '\n' + cardio[randomNumber3];
+            }
+        }
+
+        if (document.getElementById('Back/Chest').checked) {
+            randomNumber1 = Math.floor((Math.random() * back_chest.length));
+            randomNumber2 = Math.floor((Math.random() * back_chest.length));
+            if (randomNumber2 == randomNumber1) {
+                randomNumber2 = Math.floor((Math.random() * back_chest.length));
+            }
+            randomNumber3 = Math.floor((Math.random() * back_chest.length));
+            if ((randomNumber3 == randomNumber2) || (randomNumber3 == randomNumber1)) {
+                randomNumber3 = Math.floor((Math.random() * back_chest.length));
+            }
+            if (generatedWorkoutString == '') {
+                generatedWorkoutString += back_chest[randomNumber1] + '\n' + back_chest[randomNumber2] + '\n' + back_chest[randomNumber3];
+            }
+            else {
+                generatedWorkoutString += '\n' + back_chest[randomNumber1] + '\n' + back_chest[randomNumber2] + '\n' + back_chest[randomNumber3];
+            }
+        }
+
+        document.getElementById('generatedWorkout').value = generatedWorkoutString;
+    }
+</script>
 
 </html>
