@@ -18,7 +18,6 @@
 
     <!-- Page content -->
     <div class="main">
-        <a style="margin-right: 60%;" href="ourPortfolio.html">&#8592 Back to Our Portfolio</a>
         <h1 style = "margin-top: 2%;margin-bottom: 2%;">Calculate Calories Burned in Workout</h1>
         <div class="calculator"
             style='background-color: #D8BFD8; height: 550px; width:700px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
@@ -69,15 +68,18 @@
                 style="margin: 0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Calculate Calories Burned</button>
             <br><br>
             <label id="result" style="font-size:larger;"></label>
+            <button onclick='moreInfo()' id='more-info'
+                style="margin-top: 30px; height:32px; width:160px;font-size: 14px;background-color: white; border-style:solid; border-width: 2px; border-radius:10px; color: black; text-align:center;">More
+                Information!</button>
             <div id="dialogoverlay"></div>
             <div id="dialogbox">
             <div>
-                <div id="dialogboxhead" style = 'background-color: #ffe1e6;'></div>
-                <div id="dialogboxbody" style = 'background-color: #ffe1e6;'></div>
-                <div id="dialogboxfoot" style = 'background-color: #ffe1e6;'></div>
+                <div id="dialogboxhead" style = 'background-color: #ccc8c8;'></div>
+                <div id="dialogboxbody" style = 'background-color: #ccc8c8;'></div>
+                <div id="dialogboxfoot" style = 'background-color: #ccc8c8;'></div>
             </div>
         </div>
-        </div>
+        <h1 style="margin-top:40px; color:white; font-size:14px;">MET values sourced from the <a href="https://sites.google.com/site/compendiumofphysicalactivities/home" style="color:rgb(126, 186, 241)">Compendium of Physical Activities</a></h3>
     </div>
 
 </body>
@@ -175,6 +177,13 @@
             return false;
         }
         return true;
+    }
+
+    function moreInfo() {
+        var info = "This calculation is done through the use of MET (Metabolic Equivalent) values of different workouts. 1 MET is defined as 1 kcal/kg/hour or 3.5 ml/kg/min of oxygen cost. " +
+        "With the MET value of an activity, the duration of that activiy, and the weight of the person performing that activity, the total amount of calories burned can be calculated. ";
+        Alert.render("", "", info);
+        return;
     }
    
 </script>
