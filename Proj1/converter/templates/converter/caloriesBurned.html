@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body style = "background-image: linear-gradient(#D8BFD8, black);"> 
+<body style="background-image:linear-gradient(#D8BFD8, black);"> 
     <!-- Side navigation -->
     <div class="sidenav">
         <a href="index.html">Home</a> 
@@ -18,23 +18,23 @@
 
     <!-- Page content -->
     <div class="main">
-        <h1 style = "margin-top: 2%;margin-bottom: 2%;">Calculate Calories Burned in Workout</h1>
+        <h1 style = "margin-top:2%; margin-bottom:2%;">Calculate Calories Burned in Workout</h1>
         <div class="calculator"
-            style='background-color: #D8BFD8; height: 550px; width:700px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
+            style="background-color: #D8BFD8; height:550px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
             <br>
-            <p style='font-weight: bolder;'>Enter your weight (in pounds): </p>
+            <p style="font-weight:bolder;">Enter your weight (in pounds): </p>
             <br>
             <textarea name="weight" id="weight" cols="25" rows="1"
-                style='size: 20px; text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
             <br>
             <br>
-            <p style='font-weight: bolder;'>Enter the duration of workout (in minutes): </p>
+            <p style="font-weight:bolder;">Enter the duration of workout (in minutes): </p>
             <br>
             <textarea name="duration" id="duration" cols='25' rows='1'
-                style='size: 20px; text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
             <br>
             <br>
-            <p style='font-weight: bolder;'>Select your workout: </p><br>
+            <p style="font-weight:bolder;">Select your workout: </p><br>
             <div class="workoutOptionSelection" style="width:600px; text-align:center; display:inline-block;">
                 <div class="leftColRadioButtons" style="float:left; width:50%;">
                     <input type="radio" name="workoutOptions" id="walk-moderate">
@@ -65,18 +65,17 @@
             </div>
             <br><br>
             <button onclick="calculateCaloriesBurned()" id="caloriesBurned-calculate" 
-                style="margin: 0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Calculate Calories Burned</button>
+                style="margin:0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Calculate Calories Burned</button>
             <br><br>
             <label id="result" style="font-size:larger;"></label>
             <button onclick='moreInfo()' id='more-info'
-                style="margin-top: 30px; height:32px; width:160px;font-size: 14px;background-color: white; border-style:solid; border-width: 2px; border-radius:10px; color: black; text-align:center;">More
-                Information!</button>
+                style="margin-top:30px; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
             <div id="dialogoverlay"></div>
             <div id="dialogbox">
             <div>
-                <div id="dialogboxhead" style = 'background-color: #ccc8c8;'></div>
-                <div id="dialogboxbody" style = 'background-color: #ccc8c8;'></div>
-                <div id="dialogboxfoot" style = 'background-color: #ccc8c8;'></div>
+                <div id="dialogboxhead" style="background-color: #ccc8c8;"></div>
+                <div id="dialogboxbody" style="background-color: #ccc8c8;"></div>
+                <div id="dialogboxfoot" style="background-color: #ccc8c8;"></div>
             </div>
         </div>
         <h1 style="margin-top:40px; color:white; font-size:14px;">MET values sourced from the <a href="https://sites.google.com/site/compendiumofphysicalactivities/home" style="color:rgb(126, 186, 241)">Compendium of Physical Activities</a></h3>
@@ -90,20 +89,20 @@
         this.render = function (alertHead, foot, dialog) {
             var winW = window.innerWidth;
             var winH = window.innerHeight;
-            var dialogoverlay = document.getElementById('dialogoverlay');
-            var dialogbox = document.getElementById('dialogbox');
+            var dialogoverlay = document.getElementById("dialogoverlay");
+            var dialogbox = document.getElementById("dialogbox");
             dialogoverlay.style.display = "block";
             dialogoverlay.style.height = winH + "px";
             dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
             dialogbox.style.top = "100px";
             dialogbox.style.display = "block";
-            document.getElementById('dialogboxhead').innerHTML = alertHead.bold();
-            document.getElementById('dialogboxbody').innerHTML = dialog;
-            document.getElementById('dialogboxfoot').innerHTML = foot.bold() + '\n' + '<button onclick="Alert.ok()" style = "width: 10%; height: 20%; background-color: silver;border-color: black;" >OK</button>';
+            document.getElementById("dialogboxhead").innerHTML = alertHead.bold();
+            document.getElementById("dialogboxbody").innerHTML = dialog;
+            document.getElementById("dialogboxfoot").innerHTML = foot.bold() + "\n" + '<button onclick="Alert.ok()" style = "width: 10%; height: 20%; background-color: silver;border-color: black;" >OK</button>';
         }
         this.ok = function () {
-            document.getElementById('dialogbox').style.display = "none";
-            document.getElementById('dialogoverlay').style.display = "none";
+            document.getElementById("dialogbox").style.display = "none";
+            document.getElementById("dialogoverlay").style.display = "none";
         }
     }
     var Alert = new CustomAlert();
@@ -111,48 +110,48 @@
     function calculateCaloriesBurned() {
         if (checkInput()) {
             var met = 0;
-            if (document.getElementById('walk-moderate').checked) {
+            if (document.getElementById("walk-moderate").checked) {
                 met = 3.5;
             }
-            else if (document.getElementById('walk-brisk').checked) {
+            else if (document.getElementById("walk-brisk").checked) {
                 met = 5.0;
             }
-            else if (document.getElementById('jog').checked) {
+            else if (document.getElementById("jog").checked) {
                 met = 9.8;
             }
-            else if (document.getElementById('run').checked) {
+            else if (document.getElementById("run").checked) {
                 met = 11.8;
             }
-            else if (document.getElementById('sprint').checked) {
+            else if (document.getElementById("sprint").checked) {
                 met = 14.5;
             }
-            else if (document.getElementById('bike').checked) {
+            else if (document.getElementById("bike").checked) {
                 met = 7.5;
             }
-            else if (document.getElementById('calisthenics').checked) {
+            else if (document.getElementById("calisthenics").checked) {
                 met = 3.8;
             }
-            else if (document.getElementById('resistance').checked) {
+            else if (document.getElementById("resistance").checked) {
                 met = 5.0;
             }
-            else if (document.getElementById('hiit').checked) {
+            else if (document.getElementById("hiit").checked) {
                 met = 8.0;
             } 
-            else if (document.getElementById('yoga').checked) {
+            else if (document.getElementById("yoga").checked) {
                 met = 2.5;
             }
-            else if (document.getElementById('rowing').checked) {
+            else if (document.getElementById("rowing").checked) {
                 met = 4.8;
             }
             else {
                 Alert.render("","","Please select your workout");
                 return;
             }
-            var weight = document.getElementById('weight').value * 0.453592;
-            var duration = document.getElementById('duration').value;
+            var weight = document.getElementById("weight").value * 0.453592;
+            var duration = document.getElementById("duration").value;
             var caloriesBurned = met * 3.5 * weight / 200 * duration;
             caloriesBurned = caloriesBurned.toFixed();
-            document.getElementById('result').textContent = "You burned " + caloriesBurned + " calories!";
+            document.getElementById("result").textContent = "You burned " + caloriesBurned + " calories!";
         }
         else {
             return;
@@ -160,19 +159,19 @@
     }
 
     function checkInput() {
-        if (document.getElementById('weight').value == "") {
+        if (document.getElementById("weight").value == "") {
             Alert.render("","","Please enter your weight in pounds");
             return false;
         }
-        else if (document.getElementById('duration').value == "") {
+        else if (document.getElementById("duration").value == "") {
             Alert.render("","","Please enter the duration of your workout");
             return false;
         }
-        else if (isNaN(document.getElementById('weight').value)) {
+        else if (isNaN(document.getElementById("weight").value)) {
             Alert.render("","","Please enter your weight as a number (ie: 120)");
             return false;
         }
-        else if (isNaN(document.getElementById('duration').value)) {
+        else if (isNaN(document.getElementById("duration").value)) {
             Alert.render("","","Please enter the duration of your workout as a number (ie: 60)");
             return false;
         }
