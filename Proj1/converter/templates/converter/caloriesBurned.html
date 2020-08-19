@@ -20,7 +20,7 @@
     <div class="main">
         <h1 style = "margin-top:2%; margin-bottom:2%;">Calculate Calories Burned in Workout</h1>
         <div class="calculator"
-            style="background-color: #D8BFD8; height:550px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+            style="background-color: #D8BFD8; height:520px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
             <br>
             <p style="font-weight:bolder;">Enter your weight (in pounds): </p>
             <br>
@@ -69,8 +69,6 @@
             <br><br>
             <label id="result" style="font-size:larger;"></label>
             <br>
-            <button onclick='moreInfo()' id='more-info'
-                style="margin-top:15px; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
             <div id="dialogoverlay"></div>
             <div id="dialogbox">
             <div>
@@ -79,7 +77,9 @@
                 <div id="dialogboxfoot" style="background-color: #ccc8c8;"></div>
             </div>
         </div>
-        <h1 style="margin-top:40px; color:white; font-size:14px;">MET values sourced from the <a href="https://sites.google.com/site/compendiumofphysicalactivities/home" style="color:rgb(126, 186, 241)">Compendium of Physical Activities</a></h3>
+        <button onclick='moreInfo()' id='more-info'
+            style="margin-top:7%; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
+        <h1 style="padding-bottom:3%; margin-top:2%; color:white; font-size:14px;">MET values sourced from the <a href="https://sites.google.com/site/compendiumofphysicalactivities/home" style="color:rgb(126, 186, 241)">Compendium of Physical Activities</a></h3>
     </div>
 
 </body>

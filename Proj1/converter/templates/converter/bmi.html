@@ -19,41 +19,38 @@
     <!-- Page content -->
     <div class="main">
         <div>
-            <a style="margin-right: 60%;" href="ourPortfolio.html">&#8592 Back to Our Portfolio</a>
             <h1 style="margin-top: 2%;margin-bottom: 2%;">BMI Calculator</h1>
         </div>
         <div class="calculator"
-            style="background-color: #D8BFD8; height:550px; width:500px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+            style="background-color: #D8BFD8; height:500px; width:500px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
             <br>
             <p style="font-weight:bolder;">Enter your height (in inches): </p>
             <br>
             <textarea name="height" id="height" cols="25" rows="1"
-                style="margin-top:2%; size:20px; text-align:center; font-stretch:expanded; font-weight:bold; font-size:15px;"></textarea>
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
             <br>
             <br>
             <p style="font-weight:bolder;">Enter your weight (in pounds): </p>
             <br>
             <textarea name="weight" id="weight" cols='25' rows='1'
-                style="text-align:center; font-stretch:expanded; font-weight:bold; font-size:15px;"></textarea>
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+            <br>
             <br>
             <br>
             <button onclick="calculateBMI()" id="bmi-calculate"
-                style="height:63px; width:150px; font-size:20px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">CALCULATE!</button>
+                style="margin:0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color:white;">Calculate BMI</button>
             <br>
             <br>
             <br>
-            <p style="font-weight:bolder;">Your BMI:</p>
-            <br>
-            <textarea id="bmi-output" style="text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+            <label id="bmi-output" style="text-align:center; font-weight:bold; font-size:20px;"></label>
             <br>
             <br>
-            <textarea id="bmi-results" rows=4 cols=28 style="background-color: lightgrey;"></textarea>
+            <label id="bmi-description" style="text-align:center; font-size:16px;"></label>
         </div>
         <br>
         <div>
             <button onclick="moreBMIInfo()" id="bmi-info"
-                style="height: 57px; width:170px; font-size:17px; background-color: white; border-style:groove; border-width:5px; border-radius:15px; color: black; text-align:center;">More
-                Information!</button>
+                style="margin-bottom:2%; margin-top:0%; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
         </div>
         <div id="dialogoverlay"></div>
         <div id="dialogbox">
@@ -101,27 +98,26 @@
         var formulaHeight = height * height;
         var bmi = (weight / formulaHeight) * 703;
         bmi = bmi.toFixed(2);
-        document.getElementById("bmi-output").value = bmi;
-        document.getElementById("bmi-results").value = bmi;
+        document.getElementById("bmi-output").textContent = bmi;
         if(bmi == "Infinity"){
             Alert.render("","","Please enter valid inputs");
                 return;
         }
         if (bmi < 18.5) {
             var message = ("Your BMI indicates that you are underweight. In order to attain a normal weight, you must gain weight.");
-            document.getElementById("bmi-results").value = message;
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi >= 18.5 && bmi <= 24.9) {
             var message = ("Your BMI indicates that you are a normal weight.");
-            document.getElementById("bmi-results").value = message;
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi > 24.9 && bmi <= 29.9) {
             var message = ("Your BMI indicates that you are overweight. In order to attain a normal weight, you must lose weight.");
-            document.getElementById("bmi-results").value = message;
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi > 29.9) {
             var message = ("Your BMI indicates that you are obese. In order to attain a normal weight, you must lose weight.");
-            document.getElementById("bmi-results").value = message;
+            document.getElementById("bmi-description").textContent = message;
         }
     }
 
