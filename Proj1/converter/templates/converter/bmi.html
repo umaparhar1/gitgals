@@ -19,52 +19,54 @@
     <!-- Page content -->
     <div class="main">
         <div>
-            <a style="margin-right: 60%;" href="ourPortfolio.html">&#8592 Back to Our Portfolio</a>
             <h1 style="margin-top: 2%;margin-bottom: 2%;">BMI Calculator</h1>
         </div>
         <div class="calculator"
-            style='background-color: #D8BFD8; height: 550px; width:300px;margin: 0 auto;border-radius: 10%;border-color: black; border-width: 5px;border-style:double;'>
+            style="background-color: #D8BFD8; height:500px; width:500px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
             <br>
-            <p style='font-weight: bolder;'>Enter your height (in inches): </p>
+            <p style="font-weight:bolder;">Enter your height (in inches): </p>
             <br>
-            <textarea name="height" id="height" cols="25" rows="2"
-                style='margin-top: 2%; size: 20px;text-align: center;font-stretch: expanded;font-weight: bold;'></textarea>
+            <textarea name="height" id="height" cols="25" rows="1"
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
             <br>
             <br>
-            <p style='font-weight: bolder;'>Enter your weight (in pounds): </p>
+            <p style="font-weight:bolder;">Enter your weight (in pounds): </p>
             <br>
-            <textarea name="weight" id="weight" cols='25' rows='2'
-                style='text-align: center; font-stretch: expanded;font-weight: bold;'></textarea>
+            <textarea name="weight" id="weight" cols='25' rows='1'
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+            <br>
             <br>
             <br>
             <button onclick="calculateBMI()" id="bmi-calculate"
-                style="height: 63px; width:150px;font-size: 20px;background-color: black; border-style: groove;border-width: 5px;border-radius: 15px;color: white;">CALCULATE!</button>
+                style="margin:0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color:white;">Calculate BMI</button>
             <br>
             <br>
             <br>
-            <p style='font-weight: bolder;'>Your BMI:</p>
-            <br>
-            <textarea id='bmi-output' style='text-align: center; font-stretch: expanded; font-weight: bold;'></textarea>
+            <label id="bmi-output" style="text-align:center; font-weight:bold; font-size:20px;"></label>
             <br>
             <br>
-            <textarea id='bmi-results' rows=4 cols=28 style='background-color: lightgrey;'></textarea>
+            <label id="bmi-description" style="text-align:center; font-size:16px;"></label>
         </div>
         <br>
         <div>
+<<<<<<< HEAD
             <button onclick='moreBMIInfo()' id='bmi-info'
                 style="height: 57px; width:170px;font-size: 17px;background-color: white; border-style: groove;border-width: 5px;border-radius: 15px;color: black;text-align: center;margin-bottom: 5%;">More
                 Information!</button>
+=======
+            <button onclick="moreBMIInfo()" id="bmi-info"
+                style="margin-bottom:2%; margin-top:0%; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
+>>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
         </div>
         <div id="dialogoverlay"></div>
         <div id="dialogbox">
             <div>
-                <div id="dialogboxhead" style = 'background-color: #ffe1e6;'></div>
-                <div id="dialogboxbody" style = 'background-color: #ffe1e6;'></div>
-                <div id="dialogboxfoot" style = 'background-color: #ffe1e6;'></div>
+                <div id="dialogboxhead" style="background-color: #ffe1e6;"></div>
+                <div id="dialogboxbody" style="background-color: #ffe1e6;"></div>
+                <div id="dialogboxfoot" style="background-color: #ffe1e6;"></div>
             </div>
         </div>
     </div>
-
 </body>
 
 <script>
@@ -73,20 +75,20 @@
         this.render = function (alertHead, foot, dialog) {
             var winW = window.innerWidth;
             var winH = window.innerHeight;
-            var dialogoverlay = document.getElementById('dialogoverlay');
-            var dialogbox = document.getElementById('dialogbox');
+            var dialogoverlay = document.getElementById("dialogoverlay");
+            var dialogbox = document.getElementById("dialogbox");
             dialogoverlay.style.display = "block";
             dialogoverlay.style.height = winH + "px";
             dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
             dialogbox.style.top = "100px";
             dialogbox.style.display = "block";
-            document.getElementById('dialogboxhead').innerHTML = alertHead.bold();
-            document.getElementById('dialogboxbody').innerHTML = dialog;
-            document.getElementById('dialogboxfoot').innerHTML = foot.bold() + '\n' + '<button onclick="Alert.ok()" style = "width: 10%; height: 20%; background-color: silver;border-color: black;" >OK</button>';
+            document.getElementById("dialogboxhead").innerHTML = alertHead.bold();
+            document.getElementById("dialogboxbody").innerHTML = dialog;
+            document.getElementById("dialogboxfoot").innerHTML = foot.bold() + "\n" + '<button onclick="Alert.ok()" style = "width:10%; height:20%; background-color:silver; border-color:black;" >OK</button>';
         }
         this.ok = function () {
-            document.getElementById('dialogbox').style.display = "none";
-            document.getElementById('dialogoverlay').style.display = "none";
+            document.getElementById("dialogbox").style.display = "none";
+            document.getElementById("dialogoverlay").style.display = "none";
         }
     }
     var Alert = new CustomAlert();
@@ -97,41 +99,40 @@
 
     function calculateBMI() {
         checkInputs();
-        var height = document.getElementById('height').value;
-        var weight = document.getElementById('weight').value;
+        var height = document.getElementById("height").value;
+        var weight = document.getElementById("weight").value;
         var formulaHeight = height * height;
         var bmi = (weight / formulaHeight) * 703;
         bmi = bmi.toFixed(2);
-        document.getElementById('bmi-output').value = bmi;
-        document.getElementById('bmi-results').value = bmi;
-        if(bmi == 'Infinity'){
+        document.getElementById("bmi-output").textContent = bmi;
+        if(bmi == "Infinity"){
             Alert.render("","","Please enter valid inputs");
                 return;
         }
         if (bmi < 18.5) {
-            var message = ('Your BMI indicates that you are underweight. In order to attain a normal weight, you must gain weight.');
-            document.getElementById('bmi-results').value = message;
+            var message = ("Your BMI indicates that you are underweight. In order to attain a normal weight, you must gain weight.");
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi >= 18.5 && bmi <= 24.9) {
-            var message = ('Your BMI indicates that you are a normal weight.');
-            document.getElementById('bmi-results').value = message;
+            var message = ("Your BMI indicates that you are a normal weight.");
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi > 24.9 && bmi <= 29.9) {
-            var message = ('Your BMI indicates that you are overweight. In order to attain a normal weight, you must lose weight.');
-            document.getElementById('bmi-results').value = message;
+            var message = ("Your BMI indicates that you are overweight. In order to attain a normal weight, you must lose weight.");
+            document.getElementById("bmi-description").textContent = message;
         }
         if (bmi > 29.9) {
-            var message = ('Your BMI indicates that you are obese. In order to attain a normal weight, you must lose weight.');
-            document.getElementById('bmi-results').value = message;
+            var message = ("Your BMI indicates that you are obese. In order to attain a normal weight, you must lose weight.");
+            document.getElementById("bmi-description").textContent = message;
         }
     }
 
     function checkInputs(){
-        if (document.getElementById("height").value == '') {
+        if (document.getElementById("height").value == "") {
                 Alert.render("","","Please enter your height in inches");
                 return;
             }
-        if (document.getElementById("weight").value == '') {
+        if (document.getElementById("weight").value == "") {
                 Alert.render("","","Please enter your weight in pounds");
                 return;
             }
