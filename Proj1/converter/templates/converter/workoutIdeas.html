@@ -17,12 +17,7 @@
     </div>
     <!-- Page content -->
     <div class="main">
-<<<<<<< HEAD
-        <a style="margin-right: 60%;" href="ourPortfolio.html">&#8592 Back to Our Portfolio</a>
-        <h1 style="margin-top: 2%;margin-bottom: 3%;">Workout Generator</h1>
-=======
         <h1 style="margin-top:2%; margin-bottom:4%;">Workout Generator</h1>
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
         <div class="calculator"
             style="background-color: #D8BFD8; height:850px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double; margin-bottom:50px;">
             <br>
@@ -56,74 +51,14 @@
                     style="height:57px; width:170px; font-size:17px; background-color: white; border-style:groove; border-width:5px; border-radius:15px; color: black; text-align:center;">Generate!</button>
                 <br>
                 <br>
-<<<<<<< HEAD
-                <textarea readonly id='generatedWorkout' rows=18 cols=35
-                    style='background-color: lightpink;'></textarea>
-                <p>-- Have a safe workout! --</p>
-                <br>
-                <button onclick='workoutTips()' id='workout-tips'
-                    style="height: 57px; width:220px;font-size: 17px;background-color: white; border-style: groove;border-width: 5px;border-radius: 15px;color: black;text-align: center; margin-bottom: 6%;font-weight: bolder;">Tips
-                    from the Creators!
-                </button>
-                <div id="dialogoverlay"></div>
-                <div id="dialogbox">
-                    <div>
-                        <div id="dialogboxhead" style='background-color: #ffe1e6;'></div>
-                        <div id="dialogboxbody" style='background-color: #ffe1e6;'></div>
-                        <div id="dialogboxfoot" style='background-color: #ffe1e6;'></div>
-                    </div>
-                </div>
-=======
                 <textarea readonly id="generatedWorkout" rows=18 cols=35
                     style="background-color: lightgrey;"></textarea>
                 <p>Have a safe workout!</p>
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
         </div>
 
 </body>
 
 <script>
-<<<<<<< HEAD
-    var tip1 = '1. If you dont like the workout that was generated, simply click the generate button again in order to generate a new workout' + '\n';
-    var tip2 = '2. If the workout is too easy or too hard, do less/more reps and sets to make the workout fit your own personal wants' + '\n';
-    var tip3 = '3. Another way to modify a workout to fit your personal needs is to change or even add weight to the exercises'
-    var tips = tip1 + tip2 + tip3;
-    function workoutTips() {
-        Alert.render(tip1, tip3, tip2);
-    }
-
-    function CustomAlert() {
-        this.render = function (alertHead, foot, dialog) {
-            var winW = window.innerWidth;
-            var winH = window.innerHeight;
-            var dialogoverlay = document.getElementById('dialogoverlay');
-            var dialogbox = document.getElementById('dialogbox');
-            dialogoverlay.style.display = "block";
-            dialogoverlay.style.height = winH + "px";
-            dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
-            dialogbox.style.top = "100px";
-            dialogbox.style.display = "block";
-            document.getElementById('dialogboxhead').innerHTML = alertHead.bold();
-            document.getElementById('dialogboxbody').innerHTML = dialog;
-            document.getElementById('dialogboxfoot').innerHTML = foot.bold() + '\n' + '<button onclick="Alert.ok()" style = "width: 10%; height: 20%; background-color: silver;border-color: black;" >OK</button>';
-        }
-        this.ok = function () {
-            document.getElementById('dialogbox').style.display = "none";
-            document.getElementById('dialogoverlay').style.display = "none";
-        }
-    }
-    var Alert = new CustomAlert();
-
-    var legModerate = ['Dumbbell Walking Lunge (10 reps, 3 sets)', 'Standing Calf Raises (10 reps, 3 sets)', 'Pistol Squats (6 reps, 1 set)', 'Single Leg Squats (10 reps, 1 set/leg)',
-        'Curtsy Lunges (10 reps, 3 sets)', 'Deadlifts (8 reps, 4 sets)', 'Step-Ups (15 reps, 3 sets/leg)', 'Banded Step Outs (15 reps, 3 sets/leg)', 'Leg Extensions (15 reps, 3 sets)', 'Split Squats (9 reps, 3 sets)',
-        'Seated Dumbell Calf Raises (10 reps, 3 sets)', '(Weighted) Side Lunges (8 reps, 3 sets)'];
-    var legEasy = ['Dumbbell Walking Lunge (7 reps, 2 sets)', 'Standing Calf Raises (8 reps, 2 sets)', 'Pistol Squats (4 reps, 1 set)', 'Single Leg Squats (6 reps, 1 set/leg)',
-        'Curtsy Lunges (10 reps, 2 sets)', 'Deadlifts (6 reps, 4 sets)', 'Step-Ups (12 reps, 2 sets/leg)', 'Banded Step Outs  (12 reps, 2 sets/leg)', 'Leg Extensions (10 reps, 2 sets)', 'Split Squats (5 reps, 3 sets)',
-        'Seated Dumbell Calf Raises (8 reps, 2 sets)', '(Weighted) Side Lunges (6 reps, 3 sets)'];
-    var legHard = ['Dumbbell Walking Lunge (14 reps, 3-4 sets)', 'Standing Calf Raises (15 reps, 4 sets)', 'Pistol Squats (6 reps, 2 sets)', 'Single Leg Squats (10 reps, 2 sets/leg)',
-        'Curtsy Lunges (18 reps, 3 sets)', 'Deadlifts (12 reps, 4 sets)', 'Step-Ups (20 reps, 4 sets/leg)', 'Banded Step Outs', 'Leg Extensions (20 reps, 4 sets)', 'Split Squats (15 reps, 3 sets)',
-        'Seated Dumbell Calf Raises (15 reps, 4 sets)', '(Weighted) Side Lunges (12 reps, 3 sets)'];
-=======
     var legModerate = ["Dumbbell Walking Lunge (10 reps, 3 sets)", "Standing Calf Raises (10 reps, 3 sets)", "Pistol Squats (6 reps, 1 set)", "Single Leg Squats (10 reps, 1 set/leg)",
         "Curtsy Lunges (10 reps, 3 sets)", "Deadlifts (8 reps, 4 sets)", "Step-Ups (15 reps, 3 sets/leg)", "Banded Step Outs (15 reps, 3 sets/leg)", "Leg Extensions (15 reps, 3 sets)", "Split Squats (9 reps, 3 sets)",
         "Seated Dumbell Calf Raises (10 reps, 3 sets)", "(Weighted) Side Lunges (8 reps, 3 sets)"];
@@ -133,7 +68,6 @@
     var legHard = ["Dumbbell Walking Lunge (14 reps, 3-4 sets)", "Standing Calf Raises (15 reps, 4 sets)", "Pistol Squats (6 reps, 2 sets)", "Single Leg Squats (10 reps, 2 sets/leg)",
         "Curtsy Lunges (18 reps, 3 sets)", "Deadlifts (12 reps, 4 sets)", "Step-Ups (20 reps, 4 sets/leg)", "Banded Step Outs", "Leg Extensions (20 reps, 4 sets)", "Split Squats (15 reps, 3 sets)",
         "Seated Dumbell Calf Raises (15 reps, 4 sets)", "(Weighted) Side Lunges (12 reps, 3 sets)"];
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
 
     var gluteModerate = ["(Barbell) Hip Thrusts (10 reps, 3 sets)", "Reverse Lunges (8 reps, 3 sets/leg)", "Glute Bridges (10 reps, 3 sets)", "Squats (12 reps, 3 sets)", "Side-Lying Clams (8 reps, 3 sets)", "Supermans (9 reps, 3 sets)",
         "Butterfly Hip Thrusts (10 reps, 3 sets)", "Single-Leg Glute Bridges (10 reps, 3 sets/leg)", "Reverse Table-Ups (8 reps, 3 sets)", "Kettlebell Swings (9 reps, 3 sets)", "Split Squats (12 reps, 3 sets)", "Hover to Drive Lunges (4 reps, 3 sets)"
@@ -233,19 +167,11 @@
                 if (document.getElementById("Easy").checked) {
                     generatedWorkoutString += "\n" + gluteEasy[randomNumber1] + "\n" + gluteEasy[randomNumber2] + "\n" + gluteEasy[randomNumber3] + "\n";
                 }
-<<<<<<< HEAD
-                if (document.getElementById('Moderate').checked) {
-                    generatedWorkoutString += '\n' + gluteModerate[randomNumber1] + '\n' + gluteModerate[randomNumber2] + '\n' + gluteModerate[randomNumber3] + '\n';
-                }
-                if (document.getElementById('Hard').checked) {
-                    generatedWorkoutString += '\n' + gluteHard[randomNumber1] + '\n' + gluteHard[randomNumber2] + '\n' + gluteHard[randomNumber3] + '\n';
-=======
                 if (document.getElementById("Moderate").checked) {
                     generatedWorkoutString +=  "\n" + gluteModerate[randomNumber1] + "\n" + gluteModerate[randomNumber2] + "\n" + gluteModerate[randomNumber3] + "\n";
                 }
                 if (document.getElementById("Hard").checked) {
                     generatedWorkoutString +=  "\n" + gluteHard[randomNumber1] + "\n" + gluteHard[randomNumber2] + "\n" + gluteHard[randomNumber3] + "\n";
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
                 }
             }
         }
@@ -274,19 +200,11 @@
                 if (document.getElementById("Easy").checked) {
                     generatedWorkoutString += "\n" + armsEasy[randomNumber1] + "\n" + armsEasy[randomNumber2] + "\n" + armsEasy[randomNumber3] + "\n";
                 }
-<<<<<<< HEAD
-                if (document.getElementById('Moderate').checked) {
-                    generatedWorkoutString += '\n' + armsModerate[randomNumber1] + '\n' + armsModerate[randomNumber2] + '\n' + armsModerate[randomNumber3] + '\n';
-                }
-                if (document.getElementById('Hard').checked) {
-                    generatedWorkoutString += '\n' + armsHard[randomNumber1] + '\n' + armsHard[randomNumber2] + '\n' + armsHard[randomNumber3] + '\n';
-=======
                 if (document.getElementById("Moderate").checked) {
                     generatedWorkoutString +=  "\n" + armsModerate[randomNumber1] + "\n" + armsModerate[randomNumber2] + "\n" + armsModerate[randomNumber3] + "\n";
                 }
                 if (document.getElementById("Hard").checked) {
                     generatedWorkoutString +=  "\n" + armsHard[randomNumber1] + "\n" + armsHard[randomNumber2] + "\n" + armsHard[randomNumber3] + "\n";
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
                 }
             }
         }
@@ -316,19 +234,11 @@
                 if (document.getElementById("Easy").checked) {
                     generatedWorkoutString += "\n" + absEasy[randomNumber1] + "\n" + absEasy[randomNumber2] + "\n" + absEasy[randomNumber3] + "\n";
                 }
-<<<<<<< HEAD
-                if (document.getElementById('Moderate').checked) {
-                    generatedWorkoutString += '\n' + absModerate[randomNumber1] + '\n' + absModerate[randomNumber2] + '\n' + absModerate[randomNumber3] + '\n';
-                }
-                if (document.getElementById('Hard').checked) {
-                    generatedWorkoutString += '\n' + absHard[randomNumber1] + '\n' + absHard[randomNumber2] + '\n' + absHard[randomNumber3] + '\n';
-=======
                 if (document.getElementById("Moderate").checked) {
                     generatedWorkoutString +=  "\n" + absModerate[randomNumber1] + "\n" + absModerate[randomNumber2] + "\n" + absModerate[randomNumber3] + "\n";
                 }
                 if (document.getElementById("Hard").checked) {
                     generatedWorkoutString +=  "\n" + absHard[randomNumber1] + "\n" + absHard[randomNumber2] + "\n" + absHard[randomNumber3] + "\n";
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
                 }
             }
         }
@@ -358,19 +268,11 @@
                 if (document.getElementById("Easy").checked) {
                     generatedWorkoutString += "\n" + cardioEasy[randomNumber1] + "\n" + cardioEasy[randomNumber2] + "\n" + cardioEasy[randomNumber3] + "\n";
                 }
-<<<<<<< HEAD
-                if (document.getElementById('Moderate').checked) {
-                    generatedWorkoutString += '\n' + cardioModerate[randomNumber1] + '\n' + cardioModerate[randomNumber2] + '\n' + cardioModerate[randomNumber3] + '\n';
-                }
-                if (document.getElementById('Hard').checked) {
-                    generatedWorkoutString += '\n' + cardioHard[randomNumber1] + '\n' + cardioHard[randomNumber2] + '\n' + cardioHard[randomNumber3] + '\n';
-=======
                 if (document.getElementById("Moderate").checked) {
                     generatedWorkoutString +=  "\n" + cardioModerate[randomNumber1] + "\n" + cardioModerate[randomNumber2] + "\n" + cardioModerate[randomNumber3] + "\n";
                 }
                 if (document.getElementById("Hard").checked) {
                     generatedWorkoutString +=  "\n" + cardioHard[randomNumber1] + "\n" + cardioHard[randomNumber2] + "\n" + cardioHard[randomNumber3] + "\n";
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
                 }
             }
         }
@@ -400,19 +302,11 @@
                 if (document.getElementById("Easy").checked) {
                     generatedWorkoutString += "\n" + back_chestEasy[randomNumber1] + "\n" + back_chestEasy[randomNumber2] + "\n" + back_chestEasy[randomNumber3] + "\n";
                 }
-<<<<<<< HEAD
-                if (document.getElementById('Moderate').checked) {
-                    generatedWorkoutString += '\n' + back_chestModerate[randomNumber1] + '\n' + back_chestModerate[randomNumber2] + '\n' + back_chestModerate[randomNumber3] + '\n';
-                }
-                if (document.getElementById('Hard').checked) {
-                    generatedWorkoutString += '\n' + back_chestHard[randomNumber1] + '\n' + back_chestHard[randomNumber2] + '\n' + back_chestHard[randomNumber3] + '\n';
-=======
                 if (document.getElementById("Moderate").checked) {
                     generatedWorkoutString +=  "\n" + back_chestModerate[randomNumber1] + "\n" + back_chestModerate[randomNumber2] + "\n" + back_chestModerate[randomNumber3] + "\n";
                 }
                 if (document.getElementById("Hard").checked) {
                     generatedWorkoutString +=  "\n" + back_chestHard[randomNumber1] + "\n" + back_chestHard[randomNumber2] + "\n" + back_chestHard[randomNumber3] + "\n";
->>>>>>> 886a67906cc1049d416da05f001e99aff516bff6
                 }
             }
         }

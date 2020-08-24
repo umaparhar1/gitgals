@@ -25,3 +25,6 @@ def caloriesBurned(request):
 
 def workoutIdeas(request):
     return render(request, 'converter/workoutIdeas.html', {})
+
+def stock(request):
+    return render(request, 'converter/stock.html', {})
