@@ -11,4 +11,7 @@ urlpatterns = [
     path('caloriesBurned.html', views.caloriesBurned, name='caloriesBurned-app'),
     path('workoutIdeas.html', views.workoutIdeas, name='workoutIdeas-app'),
     path('stock.html', views.stock, name='stock-app'),
+    path('tutoring.html', views.tutoring,name = 'tutoring-app'),
+    path('studentPage.html', views.studentPage, name = 'studentPage-app'),
+    path('tutorPage.html', views.tutorPage, name = 'tutorPage-app'),
 ]
