@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;**/
+  font-family: 'Noto Sans', sans-serif;
+}
+div#hero{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.main {
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  padding-top: 15px;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+}
+body{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(	#D8BFD8, black);
+  color: black;
+}
+
+.workout-pic:hover{
+  transform: scale(1.2);
+}
+
+.calorie-pic:hover{
+  transform: scale(1.2);
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: black; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color:white;
+  display: block;
+  border-style: inset;
+  border-radius: 15%;
+  margin-top: 7px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: gray;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#dialogoverlay{
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #FFF;
+	width: 100%;
+	z-index: 10;
+}
+#dialogbox{
+	display: none;
+	position: fixed;
+	background: #000;
+	border-radius:7px; 
+	width:550px;
+	z-index: 10;
+}
+#dialogbox > div{ background:#FFF; margin:8px; }
+#dialogbox > div > #dialogboxhead{ background: powderblue; font-size:19px; padding:10px; color:black; }
+#dialogbox > div > #dialogboxbody{ background:powderblue; padding:20px; color:black; }
+#dialogbox > div > #dialogboxfoot{ background: powderblue; padding:10px; }
+
+

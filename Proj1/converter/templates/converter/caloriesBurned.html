@@ -1,0 +1,191 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculate Calories Burned</title>
+    <link rel="stylesheet" type ="text/css" href="{% static 'css/mysite.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-image:linear-gradient(#D8BFD8, black);"> 
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="index.html">Home</a> 
+        <a href="aboutCreators.html">About the Creators</a>
+        <a href="ourPortfolio.html">Our Portfolio</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        <h1 style = "margin-top:2%; margin-bottom:2%;">Calculate Calories Burned in Workout</h1>
+        <div class="calculator"
+            style="background-color: #D8BFD8; height:520px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+            <br>
+            <p style="font-weight:bolder;">Enter your weight (in pounds): </p>
+            <br>
+            <textarea name="weight" id="weight" cols="25" rows="1"
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+            <br>
+            <br>
+            <p style="font-weight:bolder;">Enter the duration of workout (in minutes): </p>
+            <br>
+            <textarea name="duration" id="duration" cols='25' rows='1'
+                style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+            <br>
+            <br>
+            <p style="font-weight:bolder;">Select your workout: </p><br>
+            <div class="workoutOptionSelection" style="width:600px; text-align:center; display:inline-block;">
+                <div class="leftColRadioButtons" style="float:left; width:50%;">
+                    <input type="radio" name="workoutOptions" id="walk-moderate">
+                    <label for="walk-moderate">Walking - Moderate pace (~3 mph)</label><br> 
+                    <input type="radio" name="workoutOptions" id="walk-brisk">
+                    <label for="walk-brisk">Walking - brisk pace (~4 mph)</label><br> 
+                    <input type="radio" name="workoutOptions" id="jog">
+                    <label for="jog">Jog (~6 mph, 10 min mile)</label><br> 
+                    <input type="radio" name="workoutOptions" id="run">
+                    <label for="run">Run (~7.5 mph, 8 min mile)</label><br>
+                    <input type="radio" name="workoutOptions" id="sprint">
+                    <label for="spring">Sprint (~10 mph, 6 minute mile)</label><br>
+                    <input type="radio" name="workoutOptions" id="bike">
+                    <label for="bike">Biking</label>
+                </div>
+                <div class="rightColRadiobuttons" style="float:right; width:50%;">
+                    <input type="radio" name="workoutOptions" id="calisthenics">
+                    <label for="calisthenics">Calisthenics</label><br>
+                    <input type="radio" name="workoutOptions" id="resistance">
+                    <label for="resistance">Resistance training</label><br>
+                    <input type="radio" name="workoutOptions" id="hiit">
+                    <label for="hitt">HIIT</label><br>
+                    <input type="radio" name="workoutOptions" id="yoga">
+                    <label for="yoga">Yoga</label><br>
+                    <input type="radio" name="workoutOptions" id="rowing">
+                    <label for="rowing">Rowing machine</label><br>
+                </div>
+            </div>
+            <br><br>
+            <button onclick="calculateCaloriesBurned()" id="caloriesBurned-calculate" 
+                style="margin:0 auto; height:45px; width:220px; font-size:16px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Calculate Calories Burned</button>
+            <br><br>
+            <label id="result" style="font-size:larger;"></label>
+            <br>
+            <div id="dialogoverlay"></div>
+            <div id="dialogbox">
+            <div>
+                <div id="dialogboxhead" style="background-color: #ccc8c8;"></div>
+                <div id="dialogboxbody" style="background-color: #ccc8c8;"></div>
+                <div id="dialogboxfoot" style="background-color: #ccc8c8;"></div>
+            </div>
+        </div>
+        <button onclick='moreInfo()' id='more-info'
+            style="margin-top:7%; height:32px; width:160px; font-size:14px; background-color: white; border-style:solid; border-width:2px; border-radius:10px; color: black; text-align:center;">More Information!</button>
+        <h1 style="padding-bottom:3%; margin-top:2%; color:white; font-size:14px;">MET values sourced from the <a href="https://sites.google.com/site/compendiumofphysicalactivities/home" style="color:rgb(126, 186, 241)">Compendium of Physical Activities</a></h3>
+    </div>
+
+</body>
+
+<script>
+
+    function CustomAlert() {
+        this.render = function (alertHead, foot, dialog) {
+            var winW = window.innerWidth;
+            var winH = window.innerHeight;
+            var dialogoverlay = document.getElementById("dialogoverlay");
+            var dialogbox = document.getElementById("dialogbox");
+            dialogoverlay.style.display = "block";
+            dialogoverlay.style.height = winH + "px";
+            dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
+            dialogbox.style.top = "100px";
+            dialogbox.style.display = "block";
+            document.getElementById("dialogboxhead").innerHTML = alertHead.bold();
+            document.getElementById("dialogboxbody").innerHTML = dialog;
+            document.getElementById("dialogboxfoot").innerHTML = foot.bold() + "\n" + '<button onclick="Alert.ok()" style = "width: 10%; height: 20%; background-color: silver;border-color: black;" >OK</button>';
+        }
+        this.ok = function () {
+            document.getElementById("dialogbox").style.display = "none";
+            document.getElementById("dialogoverlay").style.display = "none";
+        }
+    }
+    var Alert = new CustomAlert();
+
+    function calculateCaloriesBurned() {
+        if (checkInput()) {
+            var met = 0;
+            if (document.getElementById("walk-moderate").checked) {
+                met = 3.5;
+            }
+            else if (document.getElementById("walk-brisk").checked) {
+                met = 5.0;
+            }
+            else if (document.getElementById("jog").checked) {
+                met = 9.8;
+            }
+            else if (document.getElementById("run").checked) {
+                met = 11.8;
+            }
+            else if (document.getElementById("sprint").checked) {
+                met = 14.5;
+            }
+            else if (document.getElementById("bike").checked) {
+                met = 7.5;
+            }
+            else if (document.getElementById("calisthenics").checked) {
+                met = 3.8;
+            }
+            else if (document.getElementById("resistance").checked) {
+                met = 5.0;
+            }
+            else if (document.getElementById("hiit").checked) {
+                met = 8.0;
+            } 
+            else if (document.getElementById("yoga").checked) {
+                met = 2.5;
+            }
+            else if (document.getElementById("rowing").checked) {
+                met = 4.8;
+            }
+            else {
+                Alert.render("","","Please select your workout");
+                return;
+            }
+            var weight = document.getElementById("weight").value * 0.453592;
+            var duration = document.getElementById("duration").value;
+            var caloriesBurned = met * 3.5 * weight / 200 * duration;
+            caloriesBurned = caloriesBurned.toFixed();
+            document.getElementById("result").textContent = "You burned " + caloriesBurned + " calories!";
+        }
+        else {
+            return;
+        }
+    }
+
+    function checkInput() {
+        if (document.getElementById("weight").value == "") {
+            Alert.render("","","Please enter your weight in pounds");
+            return false;
+        }
+        else if (document.getElementById("duration").value == "") {
+            Alert.render("","","Please enter the duration of your workout");
+            return false;
+        }
+        else if (isNaN(document.getElementById("weight").value)) {
+            Alert.render("","","Please enter your weight as a number (ie: 120)");
+            return false;
+        }
+        else if (isNaN(document.getElementById("duration").value)) {
+            Alert.render("","","Please enter the duration of your workout as a number (ie: 60)");
+            return false;
+        }
+        return true;
+    }
+
+    function moreInfo() {
+        var info = "This calculation is done through the use of MET (Metabolic Equivalent) values of different workouts. 1 MET is defined as 1 kcal/kg/hour or 3.5 ml/kg/min of oxygen cost. " +
+        "With the MET value of an activity, the duration of that activiy, and the weight of the person performing that activity, the total amount of calories burned can be calculated. ";
+        Alert.render("", "", info);
+        return;
+    }
+   
+</script>
+
+</html>

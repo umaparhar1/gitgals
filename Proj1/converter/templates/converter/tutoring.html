@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tutoring</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background-image: linear-gradient(#D8BFD8, black);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="index.html">Home</a>
+        <a href="aboutCreators.html">About the Creators</a>
+        <a href="ourPortfolio.html">Our Portfolio</a>
+    </div>
+    <div class="main">
+        <h1 style="margin-top: 2%;margin-bottom: 3%">Tutoring Login Page</h1>
+        <br>
+        <br>
+        <br>
+        <div class="calculator"
+            style="background-color: rgb(197, 197, 197); height:320px; width:600px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+            <br>
+        <h2>I am a:</h2>
+        <br>
+        <br>
+        <button onclick = "location.href = 'studentPage.html'"
+            style="height:60px; width:210px; font-size:18px; background-color:rgb(226, 192, 215) ; border-radius:15px; border-width:5px; font-weight:bolder; margin-top:2%; border-color: white;margin-right: 3%;">Student</button>
+        <button onclick="location.href = 'tutorPage.html'"
+            style="height:60px; width:210px; font-size:18px; background-color: rgb(226, 192, 215); border-radius:15px; border-width:5px; font-weight:bolder; margin-top:2%; border-color: white;margin-left: 3%;">Tutor</button>
+        </div>
+</body>
+
+</html>

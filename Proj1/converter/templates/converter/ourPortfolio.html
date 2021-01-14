@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Our Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style type='text/css'>
+        body {
+            background-image: linear-gradient(#D8BFD8, black);
+        }
+
+        .container {
+            margin-left: 5%;
+            position: relative;
+            width: 50%;
+        }
+
+        .converter-icon {
+            margin-left: 33%;
+            display: flex;
+        }
+
+        .image {
+            opacity: 1;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            size: 55%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .container:hover .image {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        .workout_icons {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="index.html">Home</a>
+        <a href="aboutCreators.html">About the Creators</a>
+        <a href="ourPortfolio.html">Our Portfolio</a>
+    </div>
+    <div class="main">
+        <h1 style="margin-top:2%; margin-bottom:4%; font-size:44px; font-weight:bolder;text-align: center;align-self: center; margin-left: 5%;">Our Portfolio!</h1>
+        <div class="converter-icon">
+            <div class="container">
+                <a href="converter.html">
+                    <img src="static/img/converter-icon.png" height="240px" width="240px" class="image" style="margin-right: 1.5%;">
+                    <div class="middle">
+                        <div class="text">Binary/Hex/Decimal Converter</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="workout_icons">
+            <div class="container">
+                <a href="bmi.html">
+                    <img src="static/img/bmi-icon.png" height="240px" width="240px" class="image">
+                    <div class='middle'>
+                        <div class="text">BMI Calculator</div>
+                    </div>
+                </a>
+            </div>
+            <div class="container">
+                <a href="caloriesBurned.html">
+                    <img src="static/img/calories-icon.png" height="240px" width="240px" class="image">
+                    <div class="middle">
+                        <div class="text">Calories Burned Calculator</div>
+                    </div>
+                </a>
+            </div>
+            <div class="container">
+                <a href="workoutIdeas.html">
+                    <img src="static/img/workout-icon.png" height="240px" width="240px" class="image">
+                    <div class="middle">
+                        <div class="text">Workout Generator</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="converter-icon">
+            <div class="container">
+                <a href="stock.html">
+                    <img src="static/img/stock-icon.png" height="240px" width="240px" class="image" style="margin-right: 1.5%;">
+                    <div class="middle">
+                        <div class="text">Stock Tracker</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="converter-icon">
+            <div class="container">
+                <a href="tutoring.html">
+                    <img src="static/img/tutor_icon.png" height="240px" width="240px" class="image" style="margin-right: 1.5%;">
+                    <div class="middle">
+                        <div class="text">Tutoring</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>

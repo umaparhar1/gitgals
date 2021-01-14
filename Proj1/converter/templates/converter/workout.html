@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Workout Helper</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style type = 'text/css'>
+        body{
+            background-image: linear-gradient(#D8BFD8, black);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="index.html">Home</a>
+        <a href="aboutCreators.html">About the Creators</a>
+        <a href="ourPortfolio.html">Our Portfolio</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        <div>
+            <h1 style="margin-top:2%;">Workout Helper</h1>
+            <p style="margin-bottom:4%;">Features of Workout Helper Application: </p>
+        </div>
+    </div>
+    <div class="workout-icons">
+        <a href='bmi.html'>
+            <img src="static/img/bmi-icon.png" height="200px" width="200px" style="margin-left:31%; margin-right:1%;" class="bmi-pic">
+        </a>
+        <a href="caloriesBurned.html">
+            <img src="static/img/calorie-icon.png" height="200px" width="200px" style="margin-left:1%; margin-right:1%;" class="calorie-pic">
+        </a>
+        <a href="workoutIdeas.html">
+            <img src="static/img/workout-icon.png" height="200px" width="200px" style="margin-left:1%;" class="workout-pic">
+        </a>
+    </div>
+</body>
+
+</html>
