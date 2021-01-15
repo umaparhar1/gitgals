@@ -16,8 +16,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Proj1.settings')
 
 application = get_wsgi_application()
 
-stock = input("Enter a stock name")
+#stock = input("Enter a stock name")
 
-stockName = yf.Ticker(stock)
+#stockName = yf.Ticker(stock)
 
-print(stockName.info)
+#print(stockName.info)
