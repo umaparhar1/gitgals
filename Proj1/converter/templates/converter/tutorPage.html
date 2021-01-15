@@ -21,7 +21,34 @@
         <a href="ourPortfolio.html">Our Portfolio</a>
     </div>
     <div class="main">
-        <h1 style="margin-top: 2%;margin-bottom: 3%">This application is coming soon!</h1>
+        <h1 style="margin-top: 2%;margin-bottom: 3%">Tutor Login</h1>
+        <!-- Tutor login -->
+        <div class="tutorLogin">
+            <div class = "loginForm" style="background-color: #D8BFD8; margin-top:20%; height:270px; width:500px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+                <textarea type="text" placeholder="username" cols="30" rows="1" style="margin-top:35px; size:30px; text-align:center; font-stretch:expanded; font-size:18px; font-weight:bold;"></textarea>
+                <br>
+                <textarea type="text" placeholder="password" cols="30" rows="1" style="margin-top:25px; size:30px; text-align:center; font-stretch:expanded; font-size:18px; font-weight:bold;"></textarea>
+                <br>
+                <button onclick="tutorLogin()" id="tutorLoginButton"
+                    style="margin-top:40px; height:45px; width:150px; font-size:18px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Login</button>
+            </div>
+            <p style="margin-top:15px; color:white">Not registered?</p>
+            <a style="color:rgb(46, 164, 219)">Sign up</a>
+        </div>
+        <!-- Tutor login -->
+        <div class="tutorRegistration">
+            <div class = "registrationForm" style="background-color: #D8BFD8; margin-top:20%; height:270px; width:500px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+                <textarea type="text" placeholder="username" cols="30" rows="1" style="margin-top:35px; size:30px; text-align:center; font-stretch:expanded; font-size:18px; font-weight:bold;"></textarea>
+                <br>
+                <textarea type="text" placeholder="password" cols="30" rows="1" style="margin-top:25px; size:30px; text-align:center; font-stretch:expanded; font-size:18px; font-weight:bold;"></textarea>
+                <br>
+                <button onclick="createTutorAccount()" id="tutorRegisterButton"
+                    style="margin-top:40px; height:45px; width:150px; font-size:18px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Register</button>
+            </div>
+            <p style="margin-top:15px; color:white">Already registered?</p>
+            <a style="color:rgb(46, 164, 219)">Sign in</a>
+        </div>
+    </div>
 </body>
 
 </html>
