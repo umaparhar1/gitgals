@@ -1,27 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
+ 
 <head>
-    <title>Stock Tracker</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <style type="text/css">
-        body {
-            background-image: linear-gradient(#D8BFD8, black);
-        }
-    </style>
+   <title>Stock Tracker</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+   <style type="text/css">
+       body {
+           background-image: linear-gradient(#D8BFD8, black);
+       }
+   </style>
 </head>
-
+ 
 <body>
-    <!-- Side navigation -->
-    <div class="sidenav">
-        <a href="index.html">Home</a>
-        <a href="aboutCreators.html">About the Creators</a>
-        <a href="ourPortfolio.html">Our Portfolio</a>
-    </div>
-    <div class="main">
-        <h1 style="margin-top: 2%;margin-bottom: 3%">This application is coming soon!</h1>
+   <!-- Side navigation -->
+   <div class="sidenav">
+       <a href="index.html">Home</a>
+       <a href="aboutCreators.html">About the Creators</a>
+       <a href="ourPortfolio.html">Our Portfolio</a>
+   </div>
+   <div class="main">
+       <h1 style = "margin-top:2%; margin-bottom:2%;">Student Tutoring Request Form</h1>
+       <div class="studentInput"
+           style="background-color: #D8BFD8; height:490px; width:700px; margin:0 auto; border-radius:10%; border-color: black; border-width:5px; border-style:double;">
+           <p style="font-weight:bolder; margin-top:20px;">Preferred name and pronouns</p>
+           <textarea name="nameAndPronouns" id="nameAndPronouns" cols="50" rows="1"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+           <p style="font-weight:bolder; margin-top:20px;">Email address</p>
+           <textarea name="studentEmail" id="studentEmail" cols="50" rows="1"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+           <p style="font-weight:bolder; margin-top:20px;">What course do you need help with?</p>
+           <textarea name="courseName" id="courseName" cols="50" rows="1"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+           <p style="font-weight:bolder; margin-top:20px;">Which program do you need help with?</p>
+           <textarea name="program" id="program" cols="50" rows="1"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+           <p style="font-weight:bolder; margin-top:20px;">What feature of the program are you currently working on?</p>
+           <textarea name="programFeature" id="programFeature" cols="50" rows="1"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+           <p style="font-weight:bolder; margin-top:20px;">What error are you currently getting? What does not work correctly?</p>
+           <textarea name="errorDescription" id="errorDescription" cols="50" rows="4"
+               style="size:20px; text-align:center; font-stretch:expanded; font-weight:bold;"></textarea>
+       </div>
+       <button onclick="studentTutorRequest()" id="sendTutorRequest"
+       style="margin-top:30px; height:55px; width:230px; font-size:18px; background-color: black; border-style:groove; border-width:5px; border-radius:15px; color: white;">Send request</button>
+   </div>
 </body>
-
+ 
 </html>
